@@ -1,0 +1,17 @@
+# /etc/systemd/system/op.service
+
+[Unit]
+Description=Open Path Docker Startup Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+ExecStart=/multipass/setup.bootup.sh
+TimeoutStartSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
